@@ -5,6 +5,8 @@
 \usepackage{luatexja-ruby} % ルビを使用する場合に必要
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{amsmath}
+\usepackage[top=25truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
 %\usepackage{xcolor}
 
 % フォントの設定
@@ -31,6 +33,7 @@
 }
 
 \begin{document}
+\parindent = 0pt
 
 % タイトル
 \title{ミクロデータサイエンス\\Problemset2}
@@ -44,7 +47,34 @@
 
 \subsection{３つの扉}
 
-事前確率として, 選んだドアが正解である確率$X$は$P(X) = \frac{1}{3}$とする. また, 看守が
+事前確率として, 扉が正解である事象$X$の確率は$P(X) = \frac{1}{3}$とする. また, 看守がいずれかの扉を選ぶ事象を$Y$とする. 例えば, 囚人が Aの扉を選び看守が不正解の扉としてCの扉を開けたとすると, A と B それぞれの扉が正解の扉である事後確率はベイズの定理を用いて以下のように表せる.
+
+\begin{center}
+	\begin{gather}
+		P(X = A | Y = C) = \cfrac{P(Y = C | X = A)}{P(Y = C)} P(X = A) \\
+		P(X = B | Y = C) = \cfrac{P(Y = C | X = B)}{P(Y = C)} P(X = B)
+	\end{gather}
+\end{center}
+
+ここで, Aの扉が正解だったとすると以下のように具体的な確率を求めることができる.
+
+\begin{center}
+	\begin{gather}
+		P(Y = C) = \frac{1}{2}\quad P(Y = C | X = A) = \frac{1}{2} \\
+		P(Y = C) = \frac{1}{2}\quad P(Y = C | X = B) = 1
+	\end{gather}
+\end{center}
+
+上記の式は, 囚人が正解の扉を選んでいる場合看守は残りのどちらの扉も選ぶことができるのでその確率を仮に$\frac{1}{2}$とし, 囚人が不正解の扉を選んでいる場合に看守は扉を一つしか選択する余地がないので確率が$1$となることを表している.上記の確率の値を使用して, ベイズの定理の式1と式2を計算すると,
+
+\begin{center}
+	\begin{gather}
+		P(X = A | Y = C) = \cfrac{\frac{1}{2}}{\frac{1}{2}} \times \cfrac{1}{3} = \cfrac{1}{3} \\
+		P(X = B | Y = C) = \cfrac{1}{\frac{1}{2}} \times \cfrac{1}{3} = \cfrac{2}{3}
+	\end{gather}
+\end{center}
+
+したがって, 囚人は A から B へ扉を変更した方が正解の確率が上がるので, 囚人の扉を選び直すという行為は正しいことがわかる.
 
 \subsection{コードの実行結果の考察}
 
