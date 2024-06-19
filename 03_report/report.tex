@@ -38,7 +38,7 @@
 % タイトル
 \title{ミクロデータサイエンス\\Problemset2}
 \author{2125178\\廣江友哉}
-\date{\today}
+\date{2024/6/19}
 \maketitle
 
 
@@ -76,76 +76,42 @@
 
 したがって, 囚人は A から B へ扉を変更した方が正解の確率が上がるので, 囚人の扉を選び直すという行為は正しいことがわかる.
 
-\subsection{コードの実行結果の考察}
+\subsection{3人の囚人}
 
-\begin{lstlisting}[]
-	calculate_scores <- function(m, n, seed_num) {
-		set.seed(seed_num)
-		score <- replicate(n, sum(roll_dice(m)))
-		df_score <- dplyr::tibble(score)
-		plot_scores(df_score)
-	}
+囚人が釈放される事象$X$の確率が均等に$\cfrac{1}{3}$とすると, 看守が教える囚人の名前を事象$Y$とする. ここで, 便宜上看守が伝えた処刑される囚人の名前をCとすると, 前問のベイズの定理の式と同じ形になる.
 
-\end{lstlisting}
+\begin{center}
+	\begin{gather}
+		P(X = A | Y = C) = \cfrac{P(Y = C | X = A)}{P(Y = C)} P(X = A) \\
+		P(X = B | Y = C) = \cfrac{P(Y = C | X = B)}{P(Y = C)} P(X = B)
+	\end{gather}
+\end{center}
 
-% 	\begin{center}
-% 		\includegraphics[width=0.7\textwidth]{1-2_plot.png}
-% 	\end{center}
+具体的な確率を計算すると,
 
-上図は、左上から順に、m = 1,2,5,10 の時の分布である。 
-m = 1 の時は 1-1 で回答したように一様分布に従っている。\\
-m = 2 から m = 10 にかけて少しずつ正規分布に近似していくのが見て取れる。\\
-ここから、一様分布に従う確率変数の和は繰り返すと正規分布に近似することが考察できる。
+\begin{center}
+	\begin{gather}
+		P(Y = C) = \frac{1}{2}\quad P(Y = C | X = A) = \frac{1}{2} \\
+		P(Y = C) = \frac{1}{2}\quad P(Y = C | X = B) = 1
+	\end{gather}
+\end{center}
 
-\subsection{確率分布の和の分布のシミュレーションadv}
+これを元にベイズの定理に沿って計算を進めると,
 
-\subsection{標本平均の分散の変化}
-% 	\begin{center}
-% 		\includegraphics[width=0.7\textwidth]{1-4_plot.png}
-% 	\end{center}
+\begin{center}
+	\begin{gather}
+		P(X = A | Y = C) = \cfrac{\frac{1}{2}}{\frac{1}{2}} \times \cfrac{1}{3} = \cfrac{1}{3} \\
+		P(X = B | Y = C) = \cfrac{1}{\frac{1}{2}} \times \cfrac{1}{3} = \cfrac{2}{3}
+	\end{gather}
+\end{center}
 
-サイコロの数が増える、つまり、和をとる確率変数の数が増えるほど
-標本平均の分散は指数関数的に減少していく傾向になることがわかる。
-
-\section{指数分布と故障}
-\subsection{タブレットの導入(学校側)}
-\subsubsection{指数分布のパラメータλ}
-
-「サーバの故障回数は、1 年間に平均 2.5 回の指数分布に従う」ので、以下のような式を導ける。
-
-\[ E[t] = \frac{1}{\lambda} = 2.5 \]
-
-したがって、パラメータ\lambda は 2.5 となる。
-
-\subsubsection{１年間で発生する期待コスト}
-
-サーバは１年間で平均して 2.5 回故障するので、期待コストは以下の式で導る。
-
-\[ 10000 + 90000 \times 2.5 = 235000 \]
-
-したがって、期待コストは 235,000 円。
-
-\subsubsection{サーバー故障確率の累積分布関数}
-
-\begin{lstlisting}[]
-	simulate_exponential <- function(lambda, sample_size, seed_num) {
-		set.seed(seed_num)
-		df_cdf <- dplyr::tibble(
-			rv_uni = runif(sample_size)
-		) |>
-			dplyr::mutate(
-				prob = -(log(1 - rv_uni) / (lambda))
-			)
-		plot_cdf(df_cdf)
-	}
-
-\end{lstlisting}
-% 	\begin{center}
-% 		\includegraphics[width=0.7\textwidth]{2-3_plot.png}
-% 	\end{center}
-
-サーバ故障確率の累積分布関数のプロットは、X軸方向が時間、Y軸方向が確率となっている。\\
-X時点においてサーバがすでに故障している確率が確認できる。したがって、5年経つと約 0.875 の確率で故障していることなどが見て取れる。
+したがって, 囚人Aが釈放される事後確率は$\cfrac{1}{3}$となるため問題文の囚人Aは釈放される確率が高まると喜んでいるのは誤りである.
 
 \end{document}
+
+\subsection{比較}
+
+問題AとBのどちらも, 対象となる人物の事前確率と事後確率に変化がないことがわかる.
+
+\section{パレート分布と最尤法}
 
