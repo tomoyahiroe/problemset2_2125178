@@ -113,16 +113,53 @@
 
 \section{パレート分布と最尤法}
 
+\subsection{パレート分布の尤度関数}
+
 \begin{center}
 	\begin{gather}
 		F(x) = \begin{cases} 
-1 - \left( \frac{\beta}{x} \right)^\alpha & \text{if } x \geq \beta, \\
-0 & \text{if } x < \beta 
-\end{cases}
+			1 - \left( \frac{\beta}{x} \right)^\alpha & \text{if } x \geq \beta, \\
+			0 & \text{if } x < \beta 
+		\end{cases}
 	\end{gather}
 \end{center}
 
-\subsection{パレート分布の尤度関数}
+密度関数を求めると,
+
+\begin{center}
+	\begin{gather}
+		f(x) = \begin{cases} 
+			\alpha\beta^\alpha x^{-\alpha-1} & \text{if } x < \beta \\
+			0 & \text{if } x < \beta 
+		\end{cases}
+	\end{gather}
+\end{center}
+
+尤度関数は,
+
+\begin{center}
+	\begin{gather}
+		L(\alpha, \beta) = \prod_{x = \beta}^{n} \alpha\beta^\alpha x^{-\alpha-1}
+	\end{gather}
+\end{center}
+
+対数尤度関数は,
+
+\begin{center}
+	\begin{gather}
+		l(\alpha, \beta) = \sum_{x = \beta}^{n} \log\alpha\beta^\alpha x^{-\alpha-1} \\
+		l(\alpha, \beta) = (n - \beta + 1)(\log\alpha + \alpha\log\beta) - (\alpha + 1)\sum_{x = \beta}^{n} \log x
+	\end{gather}
+\end{center}
+
+これを$\alpha$について偏微分し, 0で結ぶと,
+
+\begin{center}
+	\begin{gather}
+		\cfrac{\partial l(\alpha, \beta)}{\partial \alpha} = (n - \beta + 1)(\cfrac{1}{\alpha} + \log\beta) - \sum_{x = \beta}^{n} \log x = 0 \\
+		\alpha = \dfrac{n -\beta + 1}{\sum_{x = \beta}^{n} \log x - (n - \beta + 1)\log \beta}
+	\end{gather}
+\end{center}
 
 \subsection{解析解を用いた推定}
 
