@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.11)  5 AUG 2024 15:27
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.11)  5 AUG 2024 15:52
  restricted system commands enabled.
 **report2_2125178.tex
 (./report2_2125178.tex
@@ -800,7 +800,17 @@ LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 4.8111pt on input line 124.
 
-[2] [3] (./report2_2125178.aux)
+[2](load cache: extra_lmmono10-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 173.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 8.65997pt on input line 173.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.(load cache: extr
+a_lmroman9-regular.luc)
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [3] (./report2_21
+25178.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -808,34 +818,36 @@ L3 programming layer <2024-02-20>
 )
 
 Here is how much of LuaTeX's memory you used:
- 9103 strings out of 476447
- 125244,1977958 words of node,token memory allocated
+ 9242 strings out of 476447
+ 156564,1977958 words of node,token memory allocated
  1124 words of node memory still in use:
    10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 241 attribute, 53 glue_sp
 ec, 31 attribute_list, 1 write, 13 user_defined nodes
-   avail lists: 1:19,2:25458,3:197,4:371,5:336,6:35,7:2952,8:39,9:1497,10:11,11:
-4
- 30992 multiletter control sequences out of 65536+600000
- 62 fonts using 45405199 bytes
- 107i,16n,101p,1917b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.o
-tf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/HaranoAji
-Gothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/l
-mroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/l
-mroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/l
-m/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/publi
-c/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/font
-s/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy7.pfb>
-Output written on report2_2125178.pdf (3 pages, 125031 bytes).
+   avail lists: 1:28,2:27706,3:203,4:2590,5:1848,6:39,7:3014,8:40,9:4034,10:21,1
+1:98
+ 31131 multiletter control sequences out of 65536+600000
+ 66 fonts using 49572175 bytes
+ 107i,16n,101p,1917b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf
+></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.o
+tf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman10-regula
+r.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/haranoaji/Harano
+AjiGothic-Medium.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/l
+m/lmroman12-bold.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/l
+m/lmroman12-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/publi
+c/lm/lmroman17-regular.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/pu
+blic/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2024/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy7.pfb>
+Output written on report2_2125178.pdf (3 pages, 134218 bytes).
 
-PDF statistics: 84 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+PDF statistics: 98 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

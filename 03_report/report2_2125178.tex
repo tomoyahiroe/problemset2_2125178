@@ -31,7 +31,7 @@
   breaklines=true,            % 長い行を折り返す
 	frame=single,               % コードブロックに枠をつける
 }
-
+\renewcommand{\lstlistingname}{ソースコード}
 \begin{document}
 \parindent = 0pt
 
@@ -168,7 +168,15 @@ $\beta$は，$x \geq \beta$より，観測値の最小値が最大値となる�
 
 \subsection{解析解を用いた推定}
 
+$\alpha$の値は$-1.303965$，$\beta$の値は$139128$となった．以下にソースコード\ref{b}を添付する．
 
+\begin{lstlisting}[caption=解析解を用いた推定,label=b]
+  # (b)
+  sample_size <- 200 
+  beta <- min(df$population) 
+  alpha_hat <- length(df$population) /
+    (length(df$population) * log(beta) - sum(log(df$population)))
+\end{lstlisting}
 
 \subsection{グリッド探索を用いた推定}
 
