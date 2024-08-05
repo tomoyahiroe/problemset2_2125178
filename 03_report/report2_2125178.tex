@@ -7,6 +7,7 @@
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage[top=25truemm,bottom=20truemm,left=20truemm,right=20truemm]{geometry}
+\usepackage{here} % For figure placement
 %\usepackage{xcolor}
 
 % フォントの設定
@@ -156,8 +157,8 @@
 \end{center}
 
 $\beta$は，$x \geq \beta$より，観測値の最小値が最大値となる．$\alpha$について偏微分すると，
-
 \begin{center}
+
   \begin{math}
     \begin{aligned}
       \dfrac{\partial l(\alpha, \beta)}{\partial \alpha} &=  \dfrac{n}{\alpha} + n\log\beta - \sum_{x = i}^{n} \log x = 0\\
@@ -179,6 +180,43 @@ $\alpha$の値は$-1.303965$，$\beta$の値は$139128$となった．以下に�
 \end{lstlisting}
 
 \subsection{グリッド探索を用いた推定}
+
+次のグラフのように，尤度が最大になる時の$\alpha$は$1.3$となり，概ね解析会を用いた推定値と一致する．
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width = \hsize]{\$HOME/code_box/learn/R/problemset2_2125178/02_code/output/grid_search.png}
+\end{figure}
+
+並び替えた完成系の $simulate\_mle$関数は以下のようになった．
+
+
+\begin{lstlisting}[caption=解析解を用いた推定,label=c]
+# (c)
+simulate_mle <- function(df, beta, sample_size) {
+  a <- "((alpha + 1)*sum(log(df$population))))"
+  b <- "sample_size*alpha*log(beta)"
+  c <- "(sample_size*log(alpha)"
+  d <- "-"
+  e <- "+"
+
+  # 以下のコードを正しく並べ替えること
+  df_likelihood <- dplyr::tibble(
+    alpha = seq(0.1, 2, by = 0.01),
+    l = eval(parse(text = paste0(c, e, b, d, a)))
+  ) |>
+    dplyr::mutate(
+      alpha_hat = dplyr::if_else(max(l) == l, 1, 0)
+    )
+
+
+  ggplot() +
+    geom_point(data = df_likelihood |> dplyr::filter(alpha_hat == 1), mapping = aes(x = alpha, y = l), color = "red") +
+    geom_point(data = df_likelihood, mapping = aes(x = alpha, y = l), alpha = 0.2) +
+    geom_text(data = df_likelihood |> dplyr::filter(alpha_hat == 1), mapping = aes(x = alpha, y = l, label = alpha), hjust = 0, vjust = -1) +
+    theme_bw()
+}
+\end{lstlisting}
 
 \subsection{勾配法を用いた推定}
 
