@@ -129,7 +129,7 @@
 \begin{center}
 	\begin{gather}
 		f(x) = \begin{cases} 
-			\alpha\beta^\alpha x^{-\alpha-1} & \text{if } x < \beta \\
+			\alpha\beta^\alpha x^{-\alpha-1} & \text{if } x \geq \beta \\
 			0 & \text{if } x < \beta 
 		\end{cases}
 	\end{gather}
@@ -146,24 +146,29 @@
 対数尤度関数は,
 
 \begin{center}
-	\begin{gather}
-		l(\alpha, \beta) = \sum_{x = \beta}^{n} \log\alpha\beta^\alpha x^{-\alpha-1} \\
-		l(\alpha, \beta) = (n - \beta + 1)(\log\alpha + \alpha\log\beta) - (\alpha + 1)\sum_{x = \beta}^{n} \log x
-	\end{gather}
+	\begin{math}
+    \begin{aligned}
+      l(\alpha, \beta) &= \sum_{x = i}^{n} \log\alpha\beta^\alpha x^{-\alpha-1} \\
+    &= \sum_{x = i}^{n} (\log\alpha + \alpha\log\beta - (\alpha + 1) \log x) \\
+      &= n\log\alpha + n\alpha\log\beta - (\alpha + 1) \sum_{x=i}^{n}\log x
+    \end{aligned}
+	\end{math}
 \end{center}
 
-これを$\alpha$について偏微分し, 0で結ぶと,
+$\beta$は，$x \geq \beta$より，観測値の最小値が最大値となる．$\alpha$について偏微分すると，
 
 \begin{center}
-	\begin{gather}
-		\cfrac{\partial l(\alpha, \beta)}{\partial \alpha} = (n - \beta + 1)(\cfrac{1}{\alpha} + \log\beta) - \sum_{x = \beta}^{n} \log x = 0 \\
-		\alpha = \dfrac{n -\beta + 1}{\sum_{x = \beta}^{n} \log x - (n - \beta + 1)\log \b\sum_{x = \beta}^{n} \log xeta}
-	\end{gather}
+  \begin{math}
+    \begin{aligned}
+      \dfrac{\partial l(\alpha, \beta)}{\partial \alpha} &=  \dfrac{n}{\alpha} + n\log\beta - \sum_{x = i}^{n} \log x = 0\\
+      \alpha &= \dfrac{n}{n\log\beta - \sum_{x = i}^{n} \log x}
+    \end{aligned}
+  \end{math}
 \end{center}
 
-次に$\beta$について偏微分し, 0で結ぶと,
-
 \subsection{解析解を用いた推定}
+
+
 
 \subsection{グリッド探索を用いた推定}
 
