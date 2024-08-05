@@ -220,6 +220,61 @@ simulate_mle <- function(df, beta, sample_size) {
 
 \subsection{勾配法を用いた推定}
 
+以下に示すように，初期値をどこから始めても$\alpha = 1.304$となる．計算時間が最も短いのは，初期値が$2$と$200$の時で，$0.009$秒だった．ここから求める$\alpha$日かいい値から始めた方が勾配法では計算量が減ることがわかる．
+
+\begin{lstlisting}[caption=勾配法を用いた推定,label=d]
+  0.009 sec elapsed
+  [1] "alpha: 1.304"
+  [1] "-log_likelihood: 2668.926"
+  [1] "counts: 25" "counts: 6"
+
+  0.009 sec elapsed
+  [1] "alpha: 1.304"
+  [1] "-log_likelihood: 2668.926"
+  [1] "counts: 37" "counts: 13"
+
+  0.046 sec elapsed
+  [1] "alpha: 1.304"
+  [1] "-log_likelihood: 2668.926"
+  [1] "counts: 74" "counts: 20"
+\end{lstlisting}
+
+\begin{lstlisting}[caption=コード,label=e]
+  #  (d)
+  log_likelihood <- function(alpha_1, df, beta, sample_size) {
+    a <- "((alpha_1[1] + 1)*sum(log(df$population))))"
+    b <- "sample_size*alpha_1[1]*log(beta)"
+    c <- "(sample_size*log(alpha_1[1])"
+    d <- "-"
+    e <- "+"
+
+    likelihood_fn <- eval(parse(text = paste0("-", c, e, b, d, a)))
+  }
+
+  run_gradient_method <- function(alpha_0, df, beta, sample_size) {
+    tictoc::tic()
+    list_par <- optim(
+      c(alpha_0),
+      log_likelihood,
+      df = df,
+      beta = beta,
+      sample_size = sample_size,
+      method = "BFGS"
+    )
+    tictoc::toc()
+
+    print(paste0("alpha: ", round(list_par$par, digits = 3)))
+    print(paste0("-log_likelihood: ", round(list_par$value, digits = 3)))
+    print(paste0("counts: ", list_par$counts))
+  }
+
+  # (d)
+  run_gradient_method(alpha_0 = 2, df = df, beta = beta, sample_size = sample_size)
+  run_gradient_method(alpha_0 = 200, df = df, beta = beta, sample_size = sample_size)
+  run_gradient_method(alpha_0 = 20000, df = df, beta = beta, sample_size = sample_size)
+\end{lstlisting}
+
+
 \subsection{パレート分布の仮定の検証(Adv.)}
 
 \end{document}

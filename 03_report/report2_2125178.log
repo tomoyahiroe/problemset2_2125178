@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.11)  5 AUG 2024 17:08
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.11)  5 AUG 2024 18:00
  restricted system commands enabled.
 **report2_2125178.tex
 (./report2_2125178.tex
@@ -833,8 +833,16 @@ Removing  `ltj.process_input_buffer' from `process_input_buffer'.
 Inserting `ltj.listings_unicode' in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' in `process_input_buffer'.
 Removing  `ltj.listings_unicode' from `process_input_buffer'. [4</Users/hiroetom
-okana/code_box/learn/R/problemset2_2125178/02_code/output/grid_search.png>] [5]
- (./report2_2125178.aux)
+okana/code_box/learn/R/problemset2_2125178/02_code/output/grid_search.png>]
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.
+Removing  `ltj.listings_unicode' from `process_input_buffer'.
+Removing  `ltj.process_input_buffer' from `process_input_buffer'.
+Inserting `ltj.listings_unicode' in `process_input_buffer'.
+Inserting `ltj.process_input_buffer' in `process_input_buffer'.
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [5] (./report2_21
+25178.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -842,14 +850,14 @@ L3 programming layer <2024-02-20>
 )
 
 Here is how much of LuaTeX's memory you used:
- 9344 strings out of 476447
- 597298,1977958 words of node,token memory allocated
- 1150 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 253 attribute, 53 glue_sp
-ec, 32 attribute_list, 1 write, 13 user_defined nodes
-   avail lists: 1:26,2:95370,3:202,4:14224,5:10445,6:58,7:8430,8:42,9:20579,10:4
-5,11:640
- 31220 multiletter control sequences out of 65536+600000
+ 9346 strings out of 476447
+ 933282,1977958 words of node,token memory allocated
+ 1124 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 241 attribute, 53 glue_sp
+ec, 31 attribute_list, 1 write, 13 user_defined nodes
+   avail lists: 1:28,2:141705,3:202,4:19642,5:13742,6:106,7:12494,8:42,9:28098,1
+0:45,11:812
+ 31222 multiletter control sequences out of 65536+600000
  66 fonts using 49572175 bytes
  107i,16n,101p,1917b,647s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf
@@ -868,7 +876,7 @@ pe1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb>
-Output written on report2_2125178.pdf (5 pages, 384092 bytes).
+Output written on report2_2125178.pdf (5 pages, 391990 bytes).
 
 PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
